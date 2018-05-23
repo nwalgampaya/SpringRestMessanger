@@ -33,10 +33,10 @@ public class MessageService {
 		return messages;
 	}
 	
-	public List<Message> getMsgFromDB(){
+	public List<Message> getAllMsgFromDB(){
 		
-//		messageDao.getMessage(id)
-		return null;
+		List<Message> allMessages = messageDao.getAllMessage();
+		return allMessages;
 	}
 	public void createMessage(String message, String author) {
 		

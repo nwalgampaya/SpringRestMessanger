@@ -41,7 +41,7 @@ public class MessageRestController {
 	
 	@RequestMapping(value = "/restDbMsg/", method = RequestMethod.GET)
 	public ResponseEntity<List<Message>> getAllMessage() {
-		List<Message> messagesList = messageService.getAllSpringMessages();
+		List<Message> messagesList = messageService.getAllMsgFromDB();
 //		Messages  messages = messageService.getAllMessages();
 		
 		/*if(messageService.getAllSpringMessages().isEmpty()){
