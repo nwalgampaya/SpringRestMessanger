@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.websystique.springmvc.Dao.MessageDao;
 import com.websystique.springmvc.model.Message;
 import com.websystique.springmvc.model.Messages;
 
@@ -14,6 +15,9 @@ import com.websystique.springmvc.model.Messages;
 public class MessageService {
 	@Autowired
 	List<Message> messages ;
+	
+	@Autowired
+	MessageDao messageDao;
 //	= new ArrayList()
 //	List<Message>
 	public List<Message> getAllSpringMessages(){
@@ -27,6 +31,11 @@ public class MessageService {
 		
 		messages.forEach(item -> System.out.println("######" +item.toString()));
 		return messages;
+	}
+	
+	public void createMessage(String message, String author) {
+		
+		messageDao.create(message, author);
 	}
 	
 	public Messages getAllMessages()

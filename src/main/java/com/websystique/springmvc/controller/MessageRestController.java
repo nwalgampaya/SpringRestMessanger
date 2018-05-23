@@ -3,11 +3,14 @@ package com.websystique.springmvc.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import com.websystique.springmvc.model.Message;
 import com.websystique.springmvc.model.User;
@@ -35,7 +38,22 @@ public class MessageRestController {
 	
 	
 	}
-	
+
+/*	@RequestMapping(value = "/createMsg/", method = RequestMethod.POST)
+	public ResponseEntity<Void> createUser(@RequestBody Message message, 	UriComponentsBuilder ucBuilder) {
+		System.out.println("Creating User " + message.getMessage());
+
+		if (userService.isUserExist(user)) {
+			System.out.println("A User with name " + user.getName() + " already exist");
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}
+
+		messageService.createMessage(message, author);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getId()).toUri());
+		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+	}*/
 
 	
 	//-------------------Retrieve All Users--------------------------------------------------------

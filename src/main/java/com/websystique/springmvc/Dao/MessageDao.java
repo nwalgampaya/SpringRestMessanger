@@ -1,12 +1,14 @@
 package com.websystique.springmvc.Dao;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import com.websystique.springmvc.model.Message;
 
 public interface MessageDao {
 
-	public void setDataSource(DataSource ds);
+//	public void setDataSource(DataSource ds);
 	   
 	   /** 
 	      * This is the method to be used to create
@@ -21,4 +23,6 @@ public interface MessageDao {
 	   */
 	   public Message getMessage(Integer id);
 	   
+		public List<Message> getAllMessage();
+		
 }
