@@ -37,8 +37,20 @@ public class MessageRestController {
 		return new ResponseEntity<List<Message>>(messagesList,HttpStatus.OK);
 	
 	
-	}
-
+	} 
+	
+	@RequestMapping(value = "/restDbMsg/", method = RequestMethod.GET)
+	public ResponseEntity<List<Message>> getAllMessage() {
+		List<Message> messagesList = messageService.getAllSpringMessages();
+//		Messages  messages = messageService.getAllMessages();
+		
+		/*if(messageService.getAllSpringMessages().isEmpty()){
+			return new ResponseEntity<List<Message>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+		}*/
+		return new ResponseEntity<List<Message>>(messagesList,HttpStatus.OK);
+	
+	
+	} 
 /*	@RequestMapping(value = "/createMsg/", method = RequestMethod.POST)
 	public ResponseEntity<Void> createUser(@RequestBody Message message, 	UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating User " + message.getMessage());
