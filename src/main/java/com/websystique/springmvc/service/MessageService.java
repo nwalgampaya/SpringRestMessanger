@@ -38,6 +38,12 @@ public class MessageService {
 		List<Message> allMessages = messageDao.getAllMessage();
 		return allMessages;
 	}
+
+	public Message getMsgFromDB(Integer id) {
+
+		Message message = messageDao.getMessage(id);
+		return message;
+	}
 	public void createMessage(String message, String author) {
 		
 		messageDao.create(message, author);

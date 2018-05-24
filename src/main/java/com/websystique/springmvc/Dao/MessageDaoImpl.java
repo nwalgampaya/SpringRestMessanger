@@ -60,11 +60,20 @@ public class MessageDaoImpl implements MessageDao{
 	        });*/
 		return messages;
 	}
-
+	
 	@Override
 	public Message getMessage(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		String SQL = "select * from Message where id= ?";
+		 
+		 
+//		Message messages = jdbcTemplate.query(SQL, 
+//	                new BeanPropertyRowMapper(Message.class));
+		Message messages = (Message) jdbcTemplate.queryForObject(SQL, 
+		         new Object[]{id},new BeanPropertyRowMapper( Message.class));
+		      
+
+		 return messages;
 	}
+
 
 }

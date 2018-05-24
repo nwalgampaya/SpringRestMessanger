@@ -10,6 +10,7 @@ import com.websystique.springmvc.Dao.MessageDao;
 import com.websystique.springmvc.configuration.HelloWorldConfiguration;
 import com.websystique.springmvc.model.Message;
 
+//@WebAppConfiguration
 public class App {
 
 	public static void main(String[] args) throws SQLException {
