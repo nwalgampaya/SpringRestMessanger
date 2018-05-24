@@ -44,9 +44,11 @@ public class MessageService {
 		Message message = messageDao.getMessage(id);
 		return message;
 	}
-	public void createMessage(String message, String author) {
+	public void createMessage(Message message) {
 		
-		messageDao.create(message, author);
+		String messages = message.getMessage();
+		String author = message.getAuthor();
+		messageDao.create(messages, author);
 	}
 	
 	public Messages getAllMessages()
