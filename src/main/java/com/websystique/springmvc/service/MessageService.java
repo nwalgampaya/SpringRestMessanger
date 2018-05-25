@@ -51,6 +51,10 @@ public class MessageService {
 		messageDao.create(messages, author);
 	}
 	
+	public void updateMessage(int id,String message, String author) {
+		
+		messageDao.update(id, message, author);
+	}
 	public Messages getAllMessages()
 	{
 		Messages list = new Messages();

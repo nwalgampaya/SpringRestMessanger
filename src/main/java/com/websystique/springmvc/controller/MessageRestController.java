@@ -67,6 +67,22 @@ public class MessageRestController {
 		return new ResponseEntity<Message>(message,HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/restDbMsg/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Message> updateMessage(@PathVariable("id") int id, @RequestBody Message msg) {
+		System.out.println("Updating User " + id);
+
+		if (msg == null) {
+			System.out.println("msg with id " + id + " not found");
+			return new ResponseEntity<Message>(HttpStatus.NOT_FOUND);
+		}
+
+		messageService.updateMessage(id, msg.getMessage(), msg.getAuthor());
+
+		return new ResponseEntity<Message>(msg, HttpStatus.OK);
+	}
+	
+
+	
 	@RequestMapping(value = "/restDbMsg/", method = RequestMethod.POST)
 	public ResponseEntity<Message> createUser(@RequestBody Message message, UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating User " + message.getMessage());

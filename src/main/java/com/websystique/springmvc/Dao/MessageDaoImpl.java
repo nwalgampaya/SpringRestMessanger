@@ -41,6 +41,14 @@ public class MessageDaoImpl implements MessageDao{
 //	      return;		
 	}
 
+//	@Override
+	public void update(int id, String message, String author) {
+		 String SQL = "UPDATE Message SET message= ? , author=? where id =?"  ;
+	      jdbcTemplate.update( SQL, message, author, id);
+	      System.out.println("Updated Record message = " + message + " author = " + author);
+//	      return;		
+	      
+	} 
 	@Override
 	public List<Message> getAllMessage() {
 		 String SQL = "select * from Message";
