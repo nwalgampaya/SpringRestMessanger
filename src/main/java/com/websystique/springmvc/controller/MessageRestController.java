@@ -77,8 +77,10 @@ public class MessageRestController {
 		}
 
 		messageService.updateMessage(id, msg.getMessage(), msg.getAuthor());
-
-		return new ResponseEntity<Message>(msg, HttpStatus.OK);
+		msg.setId(id);
+		
+		
+		return new ResponseEntity<Message>(messageService.getMsgFromDB(id), HttpStatus.OK);
 	}
 	
 
